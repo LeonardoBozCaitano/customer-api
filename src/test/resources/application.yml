@@ -10,7 +10,7 @@ spring:
             non_contextual_creation: true
   datasource:
     url: jdbc:h2:mem:testdb
-    driverClassName: postgres
+    driverClassName: org.h2.Driver
     username: h2
     password: h2
 
