@@ -33,8 +33,12 @@ $ git clone https://github.com/mvolinger/mobility-api.git
 
 ### Running it with a Docker-compose
 ```bash
-# Run
+# Run docker compose-up to set up the environment
 $ docker-compose up
+# Build the container image
+$ docker build -t bank/customer-api .
+# Run
+$ docker run -dp 8080:8080 bank/customer-api
 ```
 
 ---
