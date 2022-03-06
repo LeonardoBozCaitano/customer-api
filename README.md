@@ -41,5 +41,8 @@ $ docker build -t bank/customer-api .
 $ docker run -dp 8080:8080 bank/customer-api
 ```
 
+### To get all requests you can
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8824516-bc89913b-b958-467e-af73-2cd15b6d72c4?action=collection%2Ffork&collection-url=entityId%3D8824516-bc89913b-b958-467e-af73-2cd15b6d72c4%26entityType%3Dcollection%26workspaceId%3D1e44a8e7-20a7-439f-9475-1a08fb462b0f#?env%5BLOCAL%5D=W3sia2V5IjoiRU5EUE9JTlQiLCJ2YWx1ZSI6ImxvY2FsaG9zdDo4MDgwIiwiZW5hYmxlZCI6dHJ1ZX0seyJrZXkiOiJDVVNUT01FUl9JRCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZX1d)
+
 ---
 Made by Leonardo Boz Caitano :wave: [Get in touch!](https://github.com/LeonardoBozCaitano/)
