@@ -68,4 +68,15 @@ class CustomerHandlerTest {
 
         assertEquals(expectedCustomer.toDto(), response);
     }
+
+    @Test
+    void shouldReturnACostumerByDocumentSuccessfully() {
+        var expectedCustomer = createResponseCostumer(createCostumerDTO());
+
+        Mockito.when(customerService.find(expectedCustomer.getDocument())).thenReturn(expectedCustomer);
+
+        var response = assertDoesNotThrow(() -> customerHandler.findCustomer(expectedCustomer.getDocument()));
+
+        assertEquals(expectedCustomer.toDto(), response);
+    }
 }

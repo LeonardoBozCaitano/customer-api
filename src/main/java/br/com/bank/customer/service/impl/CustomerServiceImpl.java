@@ -7,6 +7,7 @@ import br.com.bank.customer.repository.CustomerRepository;
 import br.com.bank.customer.service.CustomerService;
 import br.com.bank.customer.service.WalletService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,6 +29,12 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer getById(String customerId) {
         return customerRepository.getById(customerId);
+    }
+
+    @Override
+    public Customer find(String document) {
+        var customerExample = Customer.builder().document(document).build();
+        return customerRepository.findOne(Example.of(customerExample)).orElseThrow();
     }
 
     @Override

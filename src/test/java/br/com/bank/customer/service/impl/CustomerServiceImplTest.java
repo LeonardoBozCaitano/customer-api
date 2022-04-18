@@ -13,6 +13,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerServiceImplTest {
@@ -43,6 +46,30 @@ class CustomerServiceImplTest {
 
         assertEquals(expectedResponse, response);
 
+    }
+
+    @Test
+    void shouldGetCustomerByIdSuccessfully() {
+        var input = UUID.randomUUID().toString();
+        var expectedResponse = Customer.from(createCustomerDTO());
+
+        Mockito.when(customerRepository.getById(input)).thenReturn(expectedResponse);
+
+        var response = assertDoesNotThrow(() -> customerService.getById(input));
+
+        assertEquals(expectedResponse, response);
+    }
+
+    @Test
+    void shouldGetCustomerByDocumentSuccessfully() {
+        var input = UUID.randomUUID().toString();
+        var expectedResponse = Customer.from(createCustomerDTO());
+
+        Mockito.when(customerRepository.findOne(Mockito.any())).thenReturn(Optional.ofNullable(expectedResponse));
+
+        var response = assertDoesNotThrow(() -> customerService.find(input));
+
+        assertEquals(expectedResponse, response);
     }
 
     private CreateCostumerDTO createCustomerDTO() {

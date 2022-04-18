@@ -9,5 +9,6 @@ import org.springframework.stereotype.Service;
 public interface CustomerService {
     Customer create(CreateCostumerDTO customerDto);
     Customer getById(String customerId);
+    Customer find(String document);
     Customer updateCustomerWalletWithMovement(MovementDTO movementDTO);
 }

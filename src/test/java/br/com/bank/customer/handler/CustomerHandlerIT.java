@@ -1,18 +1,11 @@
 package br.com.bank.customer.handler;
 
 import br.com.bank.customer.IntegrationTestBase;
-import br.com.bank.customer.handler.advice.HandlerAdvice;
 import br.com.bank.customer.handler.dto.CreateCostumerDTO;
 import net.bytebuddy.utility.RandomString;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
-
-import java.math.BigDecimal;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -45,6 +38,19 @@ class CustomerHandlerIT extends IntegrationTestBase {
 		var customer = customerHandler.create(createCostumerDTO());
 
 		webApplication.perform(get(CustomerHandler.BASE_URL + "/" + customer.getId())
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(jsonPath("$.id", equalTo(customer.getId())))
+				.andExpect(jsonPath("$.name", equalTo(customer.getName())))
+				.andExpect(jsonPath("$.document", equalTo(customer.getDocument())))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	void shouldFindACustomerSuccessfully() throws Exception {
+		var customer = customerHandler.create(createCostumerDTO());
+
+		webApplication.perform(get(CustomerHandler.BASE_URL)
+				.param("document", customer.getDocument())
 				.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.id", equalTo(customer.getId())))
 				.andExpect(jsonPath("$.name", equalTo(customer.getName())))

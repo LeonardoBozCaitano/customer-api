@@ -28,4 +28,10 @@ public class CustomerHandler {
     public CustomerDTO getById(@Validated @PathVariable String customerId) {
          return customerService.getById(customerId).toDto();
     }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public CustomerDTO findCustomer(@RequestParam String document) {
+        return customerService.find(document).toDto();
+    }
 }
