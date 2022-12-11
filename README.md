@@ -33,7 +33,7 @@ The other projects will be:
 ### Clone the project to your machine
 ```bash
 # using this command
-$ git clone https://github.com/mvolinger/mobility-api.git
+$ git clone https://github.com/LeonardoBozCaitano/customer-api.git
 ```
 
 ### Running it
