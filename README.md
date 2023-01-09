@@ -1,5 +1,5 @@
 <h3 align="center"> 
-	Bank Customer API
+	Customer API
 </h3>
 
 <p align="center">
@@ -10,11 +10,9 @@
 
 ## :woman_technologist: Project
 
-This project is a Java spring microservice that manages customer information and customer wallet movements. This is the first project of a simple bank application.
+This project is a Java spring microservice built using a Clean Architecture.
 
-The other projects will be:
-- transference: This project will asynchronously process transference requests using AWS SQS queues. It will validate the transference and communicate with the customer microservice to create customer wallet movements.
-- bank-infrastructure: This project will create all AWS infrastructure using Terraform.
+The business rules are all written in the core package, they are highly decoupled of any other part of the software. All the third party software of requirements will the adapted and connected at the core business logics through the ports.
 
 ## :mag_right: Technologies
 
@@ -22,7 +20,6 @@ The other projects will be:
 - Gradle
 - Spring Boot Starter Web
 - Lombok
-- Swagger
 - Docker and Docker-compose
 - JUnit
 - Mockito
