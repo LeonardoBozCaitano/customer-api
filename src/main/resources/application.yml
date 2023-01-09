@@ -4,14 +4,14 @@ server:
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         jdbc:
           lob:
             non_contextual_creation: true
   datasource:
-    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/bank-customer}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:postgres}
     initialization-mode: always
